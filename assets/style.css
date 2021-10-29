@@ -1,0 +1,31 @@
+body {
+    align-items: center;
+    background: black;
+    margin: auto;
+}
+
+#sign {
+    stroke-dasharray: 1554;
+    stroke-dashoffset: 1554;
+
+    animation-name: sign;
+    animation-duration: 4s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sign {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* .light {
+    color: white;
+    stroke: black;
+}
+
+.dark {
+    color: black;
+    stroke: white;
+} */
