@@ -1,2 +1,2 @@
-# Github Pages
-**Cool feature**, even cooler repository. Try going onto shateq.github.io ...
+# [shateq.github.io](https://shateq.github.io/)
+**Cool feature**, Github pages!
