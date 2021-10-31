@@ -1,16 +1,119 @@
-body {
+﻿body {
     text-align: center;
     font-family: 'Lato', sans-serif;
     margin: auto;
     font-size: large;
 }
 
-#sign {
-    stroke-dasharray: 1554;
-    stroke-dashoffset: 1554;
+.light {
+    transition-duration: 1s;
+    color: black;
+    stroke: black;
+    background-color: white;
+}
 
+.dark {
+    transition-duration: 1s;
+    color: white;
+    stroke: white;
+    background-color: #282b30;
+}
+
+.switch {
+    font-size: larger;
+    position: fixed;
+    left: 1.5%;
+}
+
+a {text-decoration: none;color: red;transition-duration: 0.5s;}
+a:hover {color: gold;transition-duration: 0.5s;}
+
+/* Letters */
+#s {
+    stroke-dasharray: 152;
+    stroke-dashoffset: 152;
     animation-name: sign;
-    animation-duration: 4s;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#h {
+    stroke-dasharray: 271;
+    stroke-dashoffset: 271;
+    animation-delay: 0.5s;
+    animation-name: sign;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#a {
+    stroke-dasharray: 120;
+    stroke-dashoffset: 120;
+    animation-delay: 1s;
+    animation-name: sign;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#i {
+    stroke-dasharray: 76;
+    stroke-dashoffset: 76;
+    animation-delay: 2s;
+    animation-name: sign;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#t {
+    stroke-dasharray: 91;
+    stroke-dashoffset: 91;
+    animation-delay: 2.5s;
+    animation-name: sign;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#l {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation-delay: 3s;
+    animation-name: sign;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#e {
+    stroke-dasharray: 177;
+    stroke-dashoffset: 177;
+    animation-delay: 3.5s;
+    animation-name: sign;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#q {
+    stroke-dasharray: 367;
+    stroke-dashoffset: 367;
+    animation-delay: 4s;
+    animation-name: sign;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+#line {
+    stroke-dasharray: 352;
+    stroke-dashoffset: 352;
+    animation-delay: 0.5s;
+    animation-name: sign;
+    animation-duration: 7s;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
 }
