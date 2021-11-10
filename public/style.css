@@ -1,15 +1,12 @@
 ﻿body {
     text-align: center;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif !important;
     margin: auto;
     font-size: large;
-}
-
-.light {
-    transition-duration: 1s;
     color: black;
     stroke: black;
     background-color: white;
+    transition-duration: 1s;
 }
 
 .dark {
@@ -19,17 +16,36 @@
     background-color: #282b30;
 }
 
-.switch {
+/* Helpers */
+.content {
+    padding: 24px;
+    text-align: center;
+}
+
+.p-1 {
+    padding: 1%;
+}
+
+#switch::after {
+    content: "☄"; /* &#9732; */
+    font-weight: 700;
+}
+
+.sun::after {
+    content: "☉" !important; /* &#9737; */
+    font-weight: 700;
+}
+
+#switch {
     font-size: larger;
     position: fixed;
     left: 1.5%;
     cursor: pointer;
 }
 
-a {text-decoration: none;color: red;transition-duration: 0.5s;}
+a {text-decoration: none;color: #0077ff;transition-duration: 0.5s;}
 a:hover {color: gold;transition-duration: 0.5s;}
 
-/* Letters */
 #s {
     stroke-dasharray: 152;
     stroke-dashoffset: 152;

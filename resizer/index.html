@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
+    <meta name="author" content="shateq" />
+    <meta name="description" content="🎨 Low (16px, 32px) resolution up to 512 and more!" />
+    <title>Canvas Resizer</title>
+    <link rel="icon" type="image/png" href="https://github.com/shateq.png"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../public/style.css">
+</head>
+<body>
+    <h1>Pixel Resizer</h1>
+    <div>
+        <!-- Input -->
+        <label for="image">Choose an image to resize:</label><br><br>
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+    </div>
+    <!-- Final result -->
+    <canvas id="helper" height="16" width="16"></canvas>
+    <br>
+    <a id="link">
+        <canvas id="output" class="p-1" height="512" width="512"></canvas>
+    </a>
+    
+    <script>
+        let drawOver = false; // Clear canvas every input change?
+        document.getElementById("image").onchange = function (e) {
+            let files = e.target.files;
+            // Helper canvas
+            if(files.length) {
+                const ctx = document.getElementById("helper").getContext("2d");
+                if(drawOver != true) {
+                    ctx.clearRect(0, 0, 512, 512);
+                }
+
+                let drawing = new Image;
+                drawing.onload = function() {
+                    ctx.drawImage(drawing, 0, 0, helper.width, helper.height);
+                    drawOutput();
+                }
+                drawing.src = URL.createObjectURL(files[0]);
+            }
+        }
+
+        function drawOutput() {
+            const ctx = document.getElementById("output").getContext("2d");
+            let helper = document.getElementById("helper").getContext("2d");
+            if(drawOver != true) {
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+                ctx.beginPath();
+            }
+
+            for(let x = 0; x < 16; x++) {
+                for(let y = 0; y < 16; y++) {
+                    var c = helper.getImageData(x, y, x+1, y+1).data;
+                    let color = `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${c[3]})`;
+                    ctx.fillStyle = color;
+
+                    let offX = x*32;
+                    let offY = y*32;
+                    ctx.fillRect(offX, offY, 32, 32);
+                }
+            }
+            // Quack
+            document.getElementById("link").download = "resized_"+Math.round(Math.random() * 10);
+            document.getElementById("link").href = ctx.canvas.toDataURL();
+        }
+
+        function toHex(r, g, b) {
+            if (r > 255 || g > 255 || b > 255) throw "Invalid color component";
+            return ((r << 16) | (g << 8) | b).toString(16);
+        }
+    </script>
+</body>
+</html>

@@ -3,58 +3,53 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="object-src 'none'; img-src https:">
     <meta name="author" content="shateq" />
     <meta name="description" content="☕" />
     <title>Shateq</title>
     <link rel="icon" type="image/png" href="https://github.com/shateq.png"/>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="public/style.css" />
 </head>
-<body id="body" class="light">
-    <div class="switch"  onclick="switchMode()">
-        <p id="btn"><strong>&#9732;</strong></p>
+<body id="body">
+    <div>
+        <p id="switch"></p>
     </div>
-    <section>
+    <section id="svg">
         <!-- SVG section etc -->
-        <svg width="355" height="283" viewBox="0 0 355 283" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path id="s" stroke-width="3" stroke-linecap="round" d="M76.5734 87.7599C69.1736 89.3254 62.394 90.4324 57.7613 97.0776C55.7439 99.9713 52.6643 105.195 53.4698 109.002C55.7398 119.732 72.6481 123.06 79.779 129.216C88.2938 136.567 92.6277 145.517 83.4442 155.13C71.6513 167.474 50.4396 168.644 36.3877 178.032"/>
-            <path id="h" stroke-width="3" stroke-linecap="round" d="M116.647 40.4408C109.134 66.2468 108.782 93.5861 105.109 120.11C103.208 133.838 102.575 147.48 101.316 161.23C101.006 164.621 101.059 167.982 100.622 171.371C99.4725 180.29 103.052 153.533 104.925 144.737C106.583 136.948 107.727 128.774 110.833 121.397C112.142 118.287 114.742 108.418 118.754 107.57C131.488 104.876 137.738 124.772 137.263 133.863C136.744 143.826 135.027 155.527 131.758 165.011"/>
-            <path id="a" stroke-width="3" stroke-linecap="round" d="M154.315 112.198C148.283 121.75 145.585 132.602 146.953 143.965C148.251 154.745 164.032 152.156 170.774 148.125C179.042 143.183 177.603 125.382 174.104 118.233C169.26 108.337 162.366 107.428 152.716 109.47"/>
-            <path id="i" stroke-width="3" stroke-linecap="round" d="M177.231 109.394C172.98 124.984 154.443 174.425 187.336 171.651"/>
-            <path id="t" stroke-width="3" stroke-linecap="round" d="M200.522 69.7142C205.544 99.7279 196.044 130.679 202.312 160.306"/>
-            <path id="l" stroke-width="3" stroke-linecap="round" d="M183.703 91.671C194.604 92.911 204.805 96.3796 215.111 100.018C217.466 100.849 219.654 101.098 220.899 103.222"/>
-            <path id="e" stroke-width="3" stroke-linecap="round" d="M214.597 136.242C222.958 138.423 255.736 146.021 250.021 126.533C244.493 107.681 211.728 111.811 207.692 129.639C206.344 135.595 206.464 142.896 208.807 148.597C212.801 158.319 227.265 159.287 236.234 159.602C244.554 159.895 255.733 159.721 259.677 151.236" stroke-width="3" stroke-linecap="round"/>
-            <path id="q" stroke-width="3" stroke-linecap="round" d="M295.386 117.106C308.198 119.804 311.297 134.339 313.703 145.712C316.558 159.207 293.659 163.944 284.229 165.292C278.852 166.06 271.138 161.779 268.352 157.35C264.472 151.181 263.885 147.175 266.484 140.199C268.997 133.455 270.878 131.164 277.107 127.333C281.107 124.872 285.774 123.228 290.344 122.261C297.114 120.829 301.524 122.916 307.964 123.417C310.347 123.602 312.163 123.778 314.522 123.279C318.581 122.42 318.16 123.214 317.351 127.791C313.756 148.12 311.925 168.682 308.321 188.985C305.873 202.774 301.763 216.296 299.472 230.096C299.301 231.127 298.954 233.28 299.847 230.527C302.885 221.169 307.405 212.248 311.466 203.311C316.837 191.486 321.666 178.641 329.995 168.5C333.229 164.562 336.579 160.962 339.563 156.822"/>
-            
-            <path id="line" stroke-width="3" stroke-linecap="round" d="M3 217C21.7818 210.976 42.8736 209.163 62.5 207.5C83.3349 205.734 104.765 204.116 125.667 205.222C181.311 208.168 236.551 219.329 291.222 229.389C305.619 232.038 319.58 234.895 333.778 238.444C339.37 239.842 344.432 242.608 350 244"/>
+        <svg width="355" height="280" viewBox="0 0 355 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="s" stroke-width="4" stroke-linecap="round" d="M76.5734 87.7599C69.1736 89.3254 62.394 90.4324 57.7613 97.0776C55.7439 99.9713 52.6643 105.195 53.4698 109.002C55.7398 119.732 72.6481 123.06 79.779 129.216C88.2938 136.567 92.6277 145.517 83.4442 155.13C71.6513 167.474 50.4396 168.644 36.3877 178.032"/>
+            <path id="h" stroke-width="4" stroke-linecap="round" d="M116.647 40.4408C109.134 66.2468 108.782 93.5861 105.109 120.11C103.208 133.838 102.575 147.48 101.316 161.23C101.006 164.621 101.059 167.982 100.622 171.371C99.4725 180.29 103.052 153.533 104.925 144.737C106.583 136.948 107.727 128.774 110.833 121.397C112.142 118.287 114.742 108.418 118.754 107.57C131.488 104.876 137.738 124.772 137.263 133.863C136.744 143.826 135.027 155.527 131.758 165.011"/>
+            <path id="a" stroke-width="4" stroke-linecap="round" d="M154.315 112.198C148.283 121.75 145.585 132.602 146.953 143.965C148.251 154.745 164.032 152.156 170.774 148.125C179.042 143.183 177.603 125.382 174.104 118.233C169.26 108.337 162.366 107.428 152.716 109.47"/>
+            <path id="i" stroke-width="4" stroke-linecap="round" d="M177.231 109.394C172.98 124.984 154.443 174.425 187.336 171.651"/>
+            <path id="t" stroke-width="4" stroke-linecap="round" d="M200.522 69.7142C205.544 99.7279 196.044 130.679 202.312 160.306"/>
+            <path id="l" stroke-width="4" stroke-linecap="round" d="M183.703 91.671C194.604 92.911 204.805 96.3796 215.111 100.018C217.466 100.849 219.654 101.098 220.899 103.222"/>
+            <path id="e" stroke-width="4" stroke-linecap="round" d="M214.597 136.242C222.958 138.423 255.736 146.021 250.021 126.533C244.493 107.681 211.728 111.811 207.692 129.639C206.344 135.595 206.464 142.896 208.807 148.597C212.801 158.319 227.265 159.287 236.234 159.602C244.554 159.895 255.733 159.721 259.677 151.236"/>
+            <path id="q" stroke-width="4" stroke-linecap="round" d="M295.386 117.106C308.198 119.804 311.297 134.339 313.703 145.712C316.558 159.207 293.659 163.944 284.229 165.292C278.852 166.06 271.138 161.779 268.352 157.35C264.472 151.181 263.885 147.175 266.484 140.199C268.997 133.455 270.878 131.164 277.107 127.333C281.107 124.872 285.774 123.228 290.344 122.261C297.114 120.829 301.524 122.916 307.964 123.417C310.347 123.602 312.163 123.778 314.522 123.279C318.581 122.42 318.16 123.214 317.351 127.791C313.756 148.12 311.925 168.682 308.321 188.985C305.873 202.774 301.763 216.296 299.472 230.096C299.301 231.127 298.954 233.28 299.847 230.527C302.885 221.169 307.405 212.248 311.466 203.311C316.837 191.486 321.666 178.641 329.995 168.5C333.229 164.562 336.579 160.962 339.563 156.822"/>
+            <path id="line" stroke-width="4" stroke-linecap="round" d="M3 217C21.7818 210.976 42.8736 209.163 62.5 207.5C83.3349 205.734 104.765 204.116 125.667 205.222C181.311 208.168 236.551 219.329 291.222 229.389C305.619 232.038 319.58 234.895 333.778 238.444C339.37 239.842 344.432 242.608 350 244"/>
         </svg>
     </section>
-    <div>
-        <p>
-            <h2>Shateq in the internet, but Simon in real life</h1><h4>Have a nice day everyone!</h4>
-        </p>
-    </div>
+    <section class="content">
+        <div>
+            <h2>Shateq in the internet, but Simon in real life</h2>
+            <p>Have a nice day everyone!</p>
+        </div>
+    </section>
+    <section class="content">
+        <h2>Projects</h2>
+        <p>Ideas that made me spend time working on them..</p>
+        <div class="project">
+            <li><a href="resizer/">Pixel Resizer</a> - brand new way to resize small resolution (Minecraft) textures</li>
+        </div>
+        
+    </section>
 
     <script>
-        let mode = 0;
-        let sun = "<strong>"+'&#9737;'+"</strong>";
-        let comet = "<strong>"+'&#9732;'+"</strong>";
-        // 1 for dark, 0 for white 
-        function switchMode () {
-            let body = document.getElementById("body");
-            let btn = document.getElementById("btn");
-
-            if(mode == 0) {
-                body.classList.replace("light", "dark");
-                btn.innerHTML = sun;
-                mode = 1;
-            } else {
-                body.classList.replace("dark", "light");
-                btn.innerHTML = comet;
-                mode = 0;
-            }
-            console.log(mode);
+        let toggle = document.getElementById("switch");
+        toggle.onclick = () => {
+            document.getElementById("body").classList.toggle("dark");
+            toggle.classList.toggle("sun");   
         }
     </script>
+    <!-- &#9737; &#9732; -->
 </body>
 </html>
