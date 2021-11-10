@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="object-src 'none';">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="object-src 'none';" />
     <meta name="author" content="shateq" />
-    <meta name="description" content="🎨 Low (16px, 32px) resolution up to 512 and more!" />
+    <meta name="description" content="Low (16px, 32px) resolution up to 512 and more!" />
     <title>Canvas Resizer</title>
-    <link rel="icon" type="image/png" href="https://github.com/shateq.png"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="../public/style.css">
+    <link rel="icon" type="image/png" href="../public/kebab.png" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../public/style.css" />
 </head>
 <body>
     <h1>Pixel Resizer</h1>
     <div>
         <!-- Input -->
-        <label for="image">Choose an image to resize:</label><br><br>
+        <label for="image">Choose an image to resize 🎨<br>You'll get the best results using 16px resolution.</label><br>
         <input type="file" id="image" name="image" accept="image/png, image/jpeg">
     </div>
     <!-- Final result -->
@@ -67,11 +67,10 @@
             document.getElementById("link").download = "resized_"+Math.round(Math.random() * 10);
             document.getElementById("link").href = ctx.canvas.toDataURL();
         }
-
-        function toHex(r, g, b) {
-            if (r > 255 || g > 255 || b > 255) throw "Invalid color component";
-            return ((r << 16) | (g << 8) | b).toString(16);
-        }
+        // function toHex(r, g, b) {
+        //     if (r > 255 || g > 255 || b > 255) throw "Invalid color component";
+        //     return ((r << 16) | (g << 8) | b).toString(16);
+        // }
     </script>
 </body>
 </html>
