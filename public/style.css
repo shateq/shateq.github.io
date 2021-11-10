@@ -26,6 +26,11 @@
     padding: 1%;
 }
 
+.project {
+    list-style-type: circle;
+}
+/* tak */
+
 #switch::after {
     content: "☄"; /* &#9732; */
     font-weight: 700;
@@ -39,7 +44,8 @@
 #switch {
     font-size: larger;
     position: fixed;
-    left: 1.5%;
+    top: 1.5%;
+    left: 2%;
     cursor: pointer;
 }
 

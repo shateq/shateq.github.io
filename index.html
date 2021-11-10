@@ -9,12 +9,10 @@
     <title>Shateq</title>
     <link rel="icon" type="image/png" href="https://github.com/shateq.png" />
     <link rel="stylesheet" type="text/css" media="screen" href="public/style.css" />
+    <script type="text/javascript" src="toggle.js"></script>
 </head>
-<body id="body">
-    <div>
-        <p id="switch"></p>
-    </div>
-    <section id="svg">
+<body>
+    <section>
         <!-- SVG section etc -->
         <svg width="355" height="280" viewBox="0 0 355 280" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="s" stroke-width="4" stroke-linecap="round" d="M76.5734 87.7599C69.1736 89.3254 62.394 90.4324 57.7613 97.0776C55.7439 99.9713 52.6643 105.195 53.4698 109.002C55.7398 119.732 72.6481 123.06 79.779 129.216C88.2938 136.567 92.6277 145.517 83.4442 155.13C71.6513 167.474 50.4396 168.644 36.3877 178.032"/>
@@ -38,18 +36,10 @@
         <h2>Projects</h2>
         <p>Ideas that made me spend time working on them..</p>
         <div class="project">
-            <li><a href="resizer/">Pixel Resizer</a> - brand new way to resize small resolution (Minecraft) textures</li>
+            <li><a href="resizer/">Pixel Resizer</a> - brand new way to resize small resolution (16px) textures</li>
+            <li><a href="https://github.com/shateq/TNTTime">TNTTime</a> - Minecraft mod displaying time left to TNT explosion</li>
         </div>
-        
     </section>
-
-    <script>
-        let toggle = document.getElementById("switch");
-        toggle.onclick = () => {
-            document.getElementById("body").classList.toggle("dark");
-            toggle.classList.toggle("sun");   
-        }
-    </script>
     <!-- &#9737; &#9732; -->
 </body>
 </html>
