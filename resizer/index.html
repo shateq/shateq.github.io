@@ -16,7 +16,7 @@
     <h1>Pixel Resizer</h1>
     <div>
         <!-- Input -->
-        <label for="image">Choose an image to resize 🎨<br>You'll get the best results using 16px resolution.</label><br>
+        <label for="image">Choose an image to resize 🎨<br>You'll get the best results using 16pxresolution.</label><br>
         <input type="file" id="image" name="image" accept="image/png, image/jpeg">
     </div>
     <!-- Final result -->
@@ -25,20 +25,20 @@
     <a id="link">
         <canvas id="output" class="p-1" height="512" width="512"></canvas>
     </a>
-    
+
     <script>
         let drawOver = false; // Clear canvas every input change?
         document.getElementById("image").onchange = function (e) {
             let files = e.target.files;
             // Helper canvas
-            if(files.length) {
+            if (files.length) {
                 const ctx = document.getElementById("helper").getContext("2d");
-                if(drawOver != true) {
+                if (drawOver != true) {
                     ctx.clearRect(0, 0, 512, 512);
                 }
 
                 let drawing = new Image;
-                drawing.onload = function() {
+                drawing.onload = function () {
                     ctx.drawImage(drawing, 0, 0, helper.width, helper.height);
                     drawOutput();
                 }
@@ -49,30 +49,26 @@
         function drawOutput() {
             const ctx = document.getElementById("output").getContext("2d");
             let helper = document.getElementById("helper").getContext("2d");
-            if(drawOver != true) {
+            if (drawOver != true) {
                 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
                 ctx.beginPath();
             }
 
-            for(let x = 0; x < 16; x++) {
-                for(let y = 0; y < 16; y++) {
-                    var c = helper.getImageData(x, y, x+1, y+1).data;
+            for (let x = 0; x < 16; x++) {
+                for (let y = 0; y < 16; y++) {
+                    var c = helper.getImageData(x, y, x + 1, y + 1).data;
                     let color = `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${c[3]})`;
                     ctx.fillStyle = color;
 
-                    let offX = x*32;
-                    let offY = y*32;
+                    let offX = x * 32;
+                    let offY = y * 32;
                     ctx.fillRect(offX, offY, 32, 32);
                 }
             }
             // Quack
-            document.getElementById("link").download = "resized_"+Math.round(Math.random() * 10);
+            document.getElementById("link").download = "resized_" + Math.round(Math.random() * 10);
             document.getElementById("link").href = ctx.canvas.toDataURL();
         }
-        // function toHex(r, g, b) {
-        //     if (r > 255 || g > 255 || b > 255) throw "Invalid color component";
-        //     return ((r << 16) | (g << 8) | b).toString(16);
-        // }
     </script>
 </body>
 </html>
