@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
     let p = document.createElement("p");
     p.id = "switch";
     document.body.appendChild(document.createElement("div").appendChild(p));
@@ -14,4 +14,4 @@ document.addEventListener("DOMContentLoaded", () => {
         let bool = document.body.classList.contains("dark");
         localStorage.setItem("dark", bool.toString());
     }
-}, false);
+// }, false);
