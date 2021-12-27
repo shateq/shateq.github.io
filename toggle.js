@@ -4,12 +4,12 @@ document.body.appendChild(document.createElement("div").appendChild(p));
 
 if (localStorage.getItem("dark") == true.toString()) {
     document.body.classList.toggle("dark");
-    p.classList.toggle("sun");
+    p.classList.toggle("light");
 }
 
 p.onclick = () => {
     document.body.classList.toggle("dark");
-    p.classList.toggle("sun");
+    p.classList.toggle("light");
     let bool = document.body.classList.contains("dark");
     localStorage.setItem("dark", bool.toString());
 }

@@ -48,7 +48,7 @@ h1 {
     font-weight: 700;
 }
 
-.sun::after {
+.light::after {
     content: "☉" !important; /* &#9737; */
     font-weight: 700;
 }
