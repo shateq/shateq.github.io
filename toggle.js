@@ -8,7 +8,6 @@ if (localStorage.getItem("dark") == true.toString()) {
 
 p.onclick = () => {
     document.body.classList.toggle("dark");
-    p.classList.toggle("dark");
     let bool = document.body.classList.contains("dark");
     localStorage.setItem("dark", bool.toString());
 }

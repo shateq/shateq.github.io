@@ -5,12 +5,13 @@
     --anchor-color: #4d68fd;
     --bg-color: white;
     --bold-weight: 700;
+    --switch: "☉" /* &#9737; (☉) */
 }
 
 body {
     font-family: var(--font-family);
     text-align: center;
-    margin: .2rem;
+    margin: 0px;
     font-size: 1.25rem;
     color: var(--color);
     stroke: var(--color);
@@ -23,10 +24,11 @@ body {
     --color: white;
     --bg-color: #282b30;
     --anchor-color: #57d8ff;
+    --switch: "☄" !important; /* &#9732; (☄) */
 }
 
 #switch::after {
-    content: "☉"; /* &#9737; (☉) */
+    content: var(--switch); 
     font-weight: var(--bold-weight);
     font-size: larger;
     position: fixed;
@@ -35,13 +37,8 @@ body {
     cursor: pointer;
 }
 
-#switch.dark::after {
-    content: "☄" !important; /* &#9732; (☄) */
-}
-
-h1 {
-    text-shadow: 0 0 1rem #fefefe;
-    font-size: 1.5rem;
+h1, h2 {
+    font-size: 2rem;
 }
 
 a {
@@ -85,7 +82,7 @@ a:hover {
         filter: hue-rotate(0deg);
     }
     to {
-        filter: hue-rotate(360deg)
+        filter: hue-rotate(360deg);
     }
 }
 
@@ -102,10 +99,6 @@ a:hover {
 
 .p-1 {
     padding: 1%;
-}
-
-.pt-1 {
-    padding-top: 2%;
 }
 
 .center {
