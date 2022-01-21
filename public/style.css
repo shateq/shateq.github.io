@@ -1,69 +1,59 @@
-﻿body {
+﻿:root {
+    --font-family: 'Lato', 'Inter', 'Roboto', sans-serif;
+    --time: 1s;
+    --color: black;
+    --anchor-color: #4d68fd;
+    --bg-color: white;
+    --bold-weight: 700;
+}
+
+body {
+    font-family: var(--font-family);
     text-align: center;
-    font-family: 'Lato', sans-serif !important;
-    margin: auto;
-    font-size: large;
-    color: black;
-    stroke: black;
-    background-color: white;
-    transition-duration: 1s;
+    margin: .2rem;
+    font-size: 1.25rem;
+    color: var(--color);
+    stroke: var(--color);
+    background-color: var(--bg-color);
+    transition-duration: var(--time);
     animation-timing-function: ease;
 }
 
-h1 {
-    text-shadow: 0 0 1rem #fefefe;
-    font-size: xx-large;
-}
-
 .dark {
-    transition-duration: 1s;
-    color: white;
-    stroke: white;
-    background-color: #282b30;
-}
-
-/* Helpers */
-.content {
-    padding: 24px;
-    text-align: center;
-}
-
-.p-1 {
-    padding: 1%;
-}
-
-.pt-1 {
-    padding-top: 2%;
-}
-
-.center {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    --color: white;
+    --bg-color: #282b30;
+    --anchor-color: #57d8ff;
 }
 
 #switch::after {
-    content: "☄"; /* &#9732; */
-    font-weight: 700;
-}
-
-.light::after {
-    content: "☉" !important; /* &#9737; */
-    font-weight: 700;
-}
-
-#switch {
+    content: "☉"; /* &#9737; (☉) */
+    font-weight: var(--bold-weight);
     font-size: larger;
     position: fixed;
-    top: 1.5%;
+    top: 3%;
     left: 2%;
     cursor: pointer;
 }
 
-a {text-decoration: none;color: #0077ff;transition-duration: 0.5s;}
-a:hover {color: gold;transition-duration: 0.5s;}
+#switch.dark::after {
+    content: "☄" !important; /* &#9732; (☄) */
+}
 
+h1 {
+    text-shadow: 0 0 1rem #fefefe;
+    font-size: 1.5rem;
+}
+
+a {
+    color: var(--anchor-color);
+}
+a:hover {
+    animation-name: color-rotation;
+    animation-duration: calc(var(--time) * 2);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+/* Mess */
 #text {
     stroke-dasharray: 2046;
     stroke-dashoffset: 2046;
@@ -90,8 +80,37 @@ a:hover {color: gold;transition-duration: 0.5s;}
     animation-fill-mode: forwards;
 }
 
+@keyframes color-rotation {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg)
+    }
+}
+
 @keyframes sign {
     to {
         stroke-dashoffset: 0;
     }
+}
+/* Helpers */
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.p-1 {
+    padding: 1%;
+}
+
+.pt-1 {
+    padding-top: 2%;
+}
+
+.center {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
