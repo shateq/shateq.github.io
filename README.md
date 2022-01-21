@@ -1,2 +1,6 @@
 # [shateq.github.io](https://shateq.github.io/)
-**Cool feature**, Github pages!
+*Feature*, Github pages!
+
+## **Repo map**
+- Main Content
+- Pixel Art Resizer
