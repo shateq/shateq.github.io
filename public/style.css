@@ -2,10 +2,10 @@
     --font-family: 'Lato', 'Inter', 'Roboto', sans-serif;
     --time: 1s;
     --color: black;
-    --anchor-color: #4d68fd;
+    --anchor-color: #586bd4;
     --bg-color: white;
     --bold-weight: 700;
-    --switch: "☉" /* &#9737; (☉) */
+    --switch: "\2609" /* ☉ */
 }
 
 body {
@@ -24,7 +24,7 @@ body {
     --color: white;
     --bg-color: #282b30;
     --anchor-color: #57d8ff;
-    --switch: "☄" !important; /* &#9732; (☄) */
+    --switch: "\2604" !important; /* ☄ */
 }
 
 #switch::after {
@@ -42,13 +42,12 @@ h1, h2 {
 }
 
 a {
+    text-decoration: none;
     color: var(--anchor-color);
 }
+
 a:hover {
-    animation-name: color-rotation;
-    animation-duration: calc(var(--time) * 2);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    text-decoration: underline;
 }
 /* Mess */
 #text {
@@ -77,21 +76,12 @@ a:hover {
     animation-fill-mode: forwards;
 }
 
-@keyframes color-rotation {
-    from {
-        filter: hue-rotate(0deg);
-    }
-    to {
-        filter: hue-rotate(360deg);
-    }
-}
-
 @keyframes sign {
     to {
         stroke-dashoffset: 0;
     }
 }
-/* Helpers */
+
 .content {
     padding: 20px;
     text-align: center;

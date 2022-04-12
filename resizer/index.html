@@ -12,8 +12,8 @@
     <meta name="theme-color" content="#ebfffc">
     <meta name="google" content="notranslate">
     <link rel="icon" type="image/png" href="/public/kebab.png" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/public/style.css" />
-    <script defer type="text/javascript" src="/toggle.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../public/style.css" />
+    <script defer type="text/javascript" src="../toggle.js"></script>
 </head>
 <body>
     <noscript>
@@ -21,8 +21,8 @@
     </noscript>
     <main>
         <h1>Pixel Resizer</h1>
+        <!-- Input -->
         <div>
-            <!-- Input -->
             <label for="image">Choose an image to resize 🎨<br>You'll get the best results using 16pxresolution.</label><br>
             <input type="file" id="image" name="image" accept="image/png, image/jpeg">
         </div>
@@ -74,7 +74,7 @@
                     ctx.fillRect(offX, offY, 32, 32);
                 }
             }
-            // Quack
+
             document.getElementById("link").download = "resized_" + Math.round(Math.random() * 10);
             document.getElementById("link").href = ctx.canvas.toDataURL();
         }
