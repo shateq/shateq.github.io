@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="object-src 'none'; img-src https:" />
+    <meta name="author" content="shateq" />
+    <meta name="description" content="Chess Clock built with Vue Petite" />
+    <meta name="keywords" content="shateq, shateq.github.io, shateq.cf, chess clock" />
+
+    <title>Chess Clock</title>
+    <meta name="theme-color" content="#ebfffc">
+    <meta name="google" content="notranslate">
+    <link rel="icon" type="image/png" href="https://github.com/shateq.png" />
+    <style>
+        html, body {
+            font-family: 'Lato', 'Inter', 'Roboto', sans-serif;
+            font-size: 1.2em;
+            margin: 0px;
+            --bl-col: white;
+            --wh-col: black;
+            text-align: center;
+        }
+
+        #app {
+            display: flex;
+            flex-flow: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .half {
+            width: 100%;
+            min-height: 100%;
+            user-select: none;
+        }
+
+        .black {
+            background-color: rgb(36, 36, 36);
+            color: var(--bl-col);
+            position: fixed;
+            top: 50%;
+        }
+
+        .white {
+            background-color: rgb(255, 255, 255);
+            color: var(--wh-col);
+            position: fixed;
+            top: 0%;
+        }
+    </style>
+
+    <script type="module">
+        import { createApp } from "https://unpkg.com/petite-vue?module";
+
+        createApp({
+            white: 0,
+            black: 0,
+            time: null,
+
+            incW() {
+                this.black--
+                this.white += 2
+            },
+
+            incB() {
+                this.white--
+                this.black += 2
+            }
+        })
+        .mount()
+    </script>
+</head>
+<body>
+    <noscript>This app won't work without JavaScript...</noscript>
+    <div id="app">
+        <div class="white half" @click="incW">
+            <h2>White</h2>
+            <h1>{{ white }}</h1>
+        </div>
+        <div class="black half" @click="incB">
+            <h2>Black</h2>
+            <h1>{{ black }}</h1>
+        </div>
+    </div>
+</body>
+</html>
