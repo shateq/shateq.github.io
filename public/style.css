@@ -1,6 +1,7 @@
-﻿:root {
+﻿/* TODO: think of wind */
+:root {
     --font-family: 'Lato', 'Inter', 'Roboto', sans-serif;
-    --time: 1s;
+    --time: .4s;
     --color: black;
     --anchor-color: #586bd4;
     --bg-color: white;
@@ -17,14 +18,14 @@ body {
     stroke: var(--color);
     background-color: var(--bg-color);
     transition-duration: var(--time);
-    animation-timing-function: ease;
+    animation-timing-function: linear
 }
 
 .dark {
     --color: white;
     --bg-color: #282b30;
     --anchor-color: #57d8ff;
-    --switch: "\2604" !important; /* ☄ */
+    --switch: "\2604" !important /* ☄ */
 }
 
 #switch::after {
@@ -34,28 +35,22 @@ body {
     position: fixed;
     top: 3%;
     left: 2%;
-    cursor: pointer;
+    cursor: pointer
 }
 
 h1, h2 {
-    font-size: 2rem;
+    font-size: 2rem
 }
 
-a {
-    text-decoration: none;
-    color: var(--anchor-color);
-}
-
-a:hover {
-    text-decoration: underline;
-}
+a { text-decoration: none; color: var(--anchor-color) }
+a:hover { text-decoration: underline }
 /* Mess */
 #text {
     stroke-dasharray: 2046;
     stroke-dashoffset: 2046;
     animation-name: sign;
     animation-duration: 10s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards
 }
 
 #t {
@@ -64,7 +59,7 @@ a:hover {
     animation-name: sign;
     animation-duration: 1s;
     animation-delay: 1.5s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards
 }
 
 #line {
@@ -73,27 +68,27 @@ a:hover {
     animation-name: sign;
     animation-duration: 1.5s;
     animation-delay: 2s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards
 }
 
 @keyframes sign {
     to {
-        stroke-dashoffset: 0;
+        stroke-dashoffset: 0
     }
 }
 
 .content {
     padding: 20px;
-    text-align: center;
+    text-align: center
 }
 
 .p-1 {
-    padding: 1%;
+    padding: 1%
 }
 
 .center {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
 }
