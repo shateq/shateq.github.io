@@ -11,28 +11,29 @@
     <title>Chess Clock</title>
     <meta name="theme-color" content="#ebfffc">
     <meta name="google" content="notranslate">
-    <link rel="icon" type="image/png" href="https://github.com/shateq.png" />
+    <link rel="icon" type="image/png" href="/public/kebab.png" />
     <style>
         html, body {
             font-family: 'Lato', 'Inter', 'Roboto', sans-serif;
             font-size: 1.2em;
             margin: 0px;
+            user-select: none;
             --bl-col: white;
             --wh-col: black;
-            text-align: center;
+            text-align: center
         }
 
         #app {
             display: flex;
             flex-flow: row;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: center
         }
 
         .half {
             width: 100%;
             min-height: 100%;
-            user-select: none;
+            z-index: -1
         }
 
         .black {
@@ -48,39 +49,95 @@
             position: fixed;
             top: 0%;
         }
+
+        .btn {
+            /* CENTER ME PLEASE */
+            cursor: pointer;
+            margin: 3px 6px;
+            font-size: 1.3em;
+
+            top: 50%;
+        }
+
+        .btn .tooltip {
+            visibility: hidden;
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-size: 1em;
+            padding: 3px 0;
+
+            position: absolute;
+            z-index: 1
+        }
+
+        .btn:hover .tooltip { visibility: visible }
     </style>
 
     <script type="module">
         import { createApp } from "https://unpkg.com/petite-vue?module";
+        let interval = null;
 
         createApp({
-            white: 0,
-            black: 0,
-            time: null,
+            whiteTurn: true,
+            timeWhite: 1_000_000,
+            timeBlack: 1_000_000, 
 
-            incW() {
-                this.black--
-                this.white += 2
+            popup() {
+                // TODO: change time remain
             },
 
-            incB() {
-                this.white--
-                this.black += 2
+            endTurn() {
+                console.log('Ended')
+                this.whiteTurn = !this.whiteTurn
+                if (interval != null) clearInterval(interval)
+
+                interval = setInterval(this.tick, 100)
+            },
+
+            stopClock() { 
+                if (interval != null) clearInterval(interval) 
+            },
+
+            reset() {
+                if (interval != null) clearInterval(interval)
+                this.timeWhite = 1_000_000,
+                this.timeBlack = 1_000_000
+            },
+
+            tick() {
+                if (this.whiteTurn) {
+                    this.timeWhite--
+                } else {
+                    this.timeBlack--
+                }
+
+                // TODO: format
             }
-        })
-        .mount()
+        }).mount()
     </script>
 </head>
 <body>
     <noscript>This app won't work without JavaScript...</noscript>
     <div id="app">
-        <div class="white half" @click="incW">
+        <div class="white half" @click="endTurn">
             <h2>White</h2>
-            <h1>{{ white }}</h1>
+            <h1>{{ timeWhite }}</h1>
         </div>
-        <div class="black half" @click="incB">
+
+        <div class="btn" @click="stopClock">🛑
+            <span class="tooltip">Stop</span>
+        </div>
+        <div class="btn" @click="reset">♻️
+            <span class="tooltip">Reset</span>
+        </div>
+        <div class="btn" @click="popup">⏲️
+            <span class="tooltip">Timer</span>
+        </div>
+
+        <div class="black half" @click="endTurn">
             <h2>Black</h2>
-            <h1>{{ black }}</h1>
+            <h1>{{ timeBlack }}</h1>
         </div>
     </div>
 </body>
