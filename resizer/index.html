@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,6 +16,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../public/style.css" />
     <script defer src="../toggle.js"></script>
 </head>
+
 <body>
     <noscript>
         <h1>This site won't work without scripting enabled.</h1>
@@ -23,11 +25,12 @@
         <h1>Pixel Resizer</h1>
         <!-- Input -->
         <div>
-            <label for="image">Choose an image to resize 🎨<br>You'll get the best results using 16pxresolution.</label><br>
+            <label for="image">Choose an image to resize 🎨<br>You'll get the best results using
+                16pxresolution.</label><br>
             <input type="file" id="image" name="image" accept="image/png, image/jpeg">
         </div>
     </main>
-    
+
     <!-- Final result -->
     <canvas id="helper" height="16" width="16"></canvas>
     <br>
@@ -80,4 +83,5 @@
         }
     </script>
 </body>
+
 </html>
