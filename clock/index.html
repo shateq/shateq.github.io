@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Security-Policy" content="object-src 'none'; img-src https:" />
     <meta name="author" content="shateq" />
-    <meta name="description" content="Chess Clock built with Vue Petite" />
+    <meta name="description" content="LiChess Clock clone built with VuePetite" />
     <meta name="keywords" content="shateq, shateq.github.io, shateq.cf, chess clock" />
 
     <title>Chess Clock</title>
     <meta name="theme-color" content="#ebfffc">
     <meta name="google" content="notranslate">
-    <link rel="icon" type="image/png" href="/public/kebab.png" />
+    <link rel="icon" type="image/png" href="/public/rook.png" />
     <style>
-        html, body {
+        html,
+        body {
+            --bl-col: white;
+            --wh-col: black;
+            --duration: .3s;
             font-family: 'Lato', 'Inter', 'Roboto', sans-serif;
             font-size: 1.2em;
             margin: 0px;
             user-select: none;
-            --bl-col: white;
-            --wh-col: black;
             text-align: center
         }
 
@@ -31,32 +34,43 @@
         }
 
         .half {
+            transition-duration: var(--duration);
+            background-color: rgb(46, 46, 46);
+            color: var(--bl-col);
             width: 100%;
             min-height: 100%;
             z-index: -1
         }
 
-        .black {
-            background-color: rgb(36, 36, 36);
-            color: var(--bl-col);
-            position: fixed;
-            top: 50%;
+        .enabled {
+            background-color: rgb(255, 255, 255);
+            color: var(--wh-col)
         }
 
-        .white {
-            background-color: rgb(255, 255, 255);
-            color: var(--wh-col);
+        .black { position: fixed; top: 50% }
+        .white { position: fixed; top: 0% }
+
+        .inside {
+            background-color: black;
             position: fixed;
-            top: 0%;
+            width: 100%;
+            top: 50%;
+            padding: 0.85em 0;
+            translate: 0 -50%;
+            z-index: 0
+        }
+
+        #settings {
+            position: fixed;
+            translate: 0 -50%;
+            left: .3em;
+            top: 50%
         }
 
         .btn {
-            /* CENTER ME PLEASE */
             cursor: pointer;
-            margin: 3px 6px;
-            font-size: 1.3em;
-
-            top: 50%;
+            margin: 8px 4px;
+            font-size: 1.2em;
         }
 
         .btn .tooltip {
@@ -71,44 +85,67 @@
             z-index: 1
         }
 
-        .btn:hover .tooltip { visibility: visible }
+        .btn:hover .tooltip {
+            visibility: visible
+        }
     </style>
 
     <script type="module">
         import { createApp } from "https://unpkg.com/petite-vue?module";
+        const format = Intl.DateTimeFormat('en', {
+            timeStyle: "medium",
+            hour12: false
+        })
+
+        let first = null;
         let interval = null;
 
+        const def = 6_000
+
         createApp({
-            whiteTurn: true,
-            timeWhite: 1_000_000,
-            timeBlack: 1_000_000, 
+            whiteTurn: false,
+            timeZero: def, // do somefin
+            timeOne: def,
 
-            popup() {
-                // TODO: change time remain
-            },
+            popup() { /* settings */ },
 
-            endTurn() {
-                console.log('Ended')
-                this.whiteTurn = !this.whiteTurn
+            endTurn($el) {
+                if (!$el.classList.contains("enabled")) return
+
+                if (first == null) {
+                    first = $el.id
+                    $el.classList.toggle("enabled")
+                }
+// think
+                $el.classList.toggle("enabled")
+
+                this.whiteTurn = !this.whiteTurn // what
+
                 if (interval != null) clearInterval(interval)
-
-                interval = setInterval(this.tick, 100)
+                interval = setInterval(this.tick, 10)
             },
 
-            stopClock() { 
-                if (interval != null) clearInterval(interval) 
+            stopClock() {
+                if (interval != null) clearInterval(interval); interval = null
             },
 
             reset() {
                 if (interval != null) clearInterval(interval)
-                this.timeWhite = 1_000_000,
-                this.timeBlack = 1_000_000
+                document.querySelectorAll(".half").forEach(el => el.classList.add("enabled"))
+
+                interval = null
+                first = null
+
+                this.timeWhite = def
+                this.timeBlack = def
             },
 
             tick() {
+                if (this.timeWhite == 0 || this.timeBlack == 0) return
+
                 if (this.whiteTurn) {
                     this.timeWhite--
-                } else {
+                } else if (!this.whiteTurn) {
                     this.timeBlack--
                 }
 
@@ -117,28 +154,30 @@
         }).mount()
     </script>
 </head>
+
 <body>
     <noscript>This app won't work without JavaScript...</noscript>
     <div id="app">
-        <div class="white half" @click="endTurn">
-            <h2>White</h2>
-            <h1>{{ timeWhite }}</h1>
+        <div id="0" class="white half enabled" @click="endTurn($el)">
+            <h1>{{ timeZero }}</h1>
+        </div>
+        <div class="inside"></div>
+        <div id="1" class="black half enabled" @click="endTurn($el)">
+            <h1>{{ timeOne }}</h1>
         </div>
 
-        <div class="btn" @click="stopClock">🛑
-            <span class="tooltip">Stop</span>
-        </div>
-        <div class="btn" @click="reset">♻️
-            <span class="tooltip">Reset</span>
-        </div>
-        <div class="btn" @click="popup">⏲️
-            <span class="tooltip">Timer</span>
-        </div>
-
-        <div class="black half" @click="endTurn">
-            <h2>Black</h2>
-            <h1>{{ timeBlack }}</h1>
-        </div>
+        <section id="settings">
+            <div class="btn" @click="stopClock">🛑
+                <span class="tooltip">Stop</span>
+            </div>
+            <div class="btn" @click="reset">♻️
+                <span class="tooltip">Reset</span>
+            </div>
+            <div class="btn" @click="popup">⏲️
+                <span class="tooltip">Timer</span>
+            </div>
+        </section>
     </div>
 </body>
+
 </html>
