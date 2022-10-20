@@ -1,9 +1,13 @@
-# [shateq.github.io](https://shateq.github.io/)
+# Personal site
 *Feature*, Github pages!
 
-## **Repo map**
+TO BE SVELTE-KITTED
+
+- [shateq.github.io](https://shateq.github.io/)
+
+## Site map
 - Main Content
 - Pixel Art Resizer
 
-### **License**
+### License
 Project is licensed under MIT. Check `LICENSE` file for details.
