@@ -1,13 +1,9 @@
-# Personal site
-*Feature*, Github pages!
+# Personal Home Page
 
-TO BE SVELTE-KITTED
+Not written in php, though.
 
-- [shateq.github.io](https://shateq.github.io/)
-
-## Site map
-- Main Content
-- Pixel Art Resizer
+szymek.nl
 
 ### License
+
 Project is licensed under MIT. Check `LICENSE` file for details.
