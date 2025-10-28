@@ -35,12 +35,8 @@ a:visited {
     font-size: 2em;
 }
 
-._404 {
-    font-size: 18rem;
-}
-
 h1 {
-    font-size: 14rem;
+    font-size: 12em;
 }
 
 h2 {
@@ -50,15 +46,22 @@ h2 {
 
 /* 404.html */
 div.compound > h1 {
+    font-size: 14em;
     position: relative;
     z-index: 3;
 }
 
 div.compound > h2 {
+    font-size: 11em;
     position: absolute;
     z-index: 2;
     top: -0.45em;
-    left: 0.5em;
+    left: 0.4em;
+}
+
+.layertop {
+    position: relative;
+    z-index: 10;
 }
 /* 404.html bottom */
 
