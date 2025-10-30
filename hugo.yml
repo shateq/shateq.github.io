@@ -1,0 +1,7 @@
+baseURL: https://swieczorek.com/
+languageCode: en
+title: Szymon Wieczorek
+minify:
+  minifyOutput: true
+disableKinds:
+  - 'taxonomy'

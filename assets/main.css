@@ -1,0 +1,88 @@
+:root {
+    --arabic-red: #bb2020;
+    --arabic-green: #009736;
+    --secondary-beige: #f5f5dc;
+}
+/* :root[data-theme="dark"] { */
+/*     --arabic-red: #000; */
+/* } */
+
+* {
+    font-family: Times New Roman, courier, serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+main, body {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--secondary-beige);
+}
+
+.margin {
+    padding: 0 2rem;
+}
+/* TEXT */
+a:visited {
+    color: blue;
+}
+
+.ar {
+    font-family: 'Lateef', 'Scheherazade New';
+    color: var(--arabic-red);
+}
+
+.biggie {
+    font-size: 2em;
+}
+
+h1 {
+    font-size: 12em;
+}
+
+h2 {
+    line-height: 3;
+}
+/* TEXT bottom */
+
+/* 404.html */
+div.compound > h1 {
+    font-size: 14em;
+    position: relative;
+    z-index: 3;
+}
+
+div.compound > h2 {
+    font-size: 11em;
+    position: absolute;
+    z-index: 2;
+    top: -0.45em;
+    left: 0.4em;
+}
+
+.layertop {
+    position: relative;
+    z-index: 10;
+}
+/* 404.html bottom */
+
+span.pad {
+    padding: 1.5rem 0;
+    display: block;
+}
+
+#link>ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.tabbed {
+    padding: 1em;
+    left: 5%;
+    position: absolute;
+    transform: translateY(-100%);
+}
+
+.tabbed:focus {
+    transform: translateY(0%);
+}
