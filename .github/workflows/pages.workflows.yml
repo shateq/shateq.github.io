@@ -34,6 +34,8 @@ jobs:
         run: hugo
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: public/
 
   deploy:
     environment:
