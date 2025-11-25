@@ -27,12 +27,21 @@ a:visited {
 }
 
 .ar {
-    font-family: 'Lateef', 'Scheherazade New';
+    font-family: 'Lateef', 'Scheherazade New', serif;
     color: var(--arabic-red);
+}
+
+.ag {
+    font-family: 'Lateef', 'Scheherazade New', serif;
+    color: var(--arabic-green);
 }
 
 .biggie {
     font-size: 2em;
+}
+
+footer {
+    padding: 0 3rem 2em 3rem;
 }
 
 h1 {
@@ -41,6 +50,10 @@ h1 {
 
 h2 {
     line-height: 3;
+}
+
+h3 {
+    line-height: 2;
 }
 /* TEXT bottom */
 
