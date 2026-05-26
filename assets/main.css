@@ -11,7 +11,9 @@
     font-family: Times New Roman, courier, serif;
     margin: 0;
     box-sizing: border-box;
+    line-height: 1.3;
 }
+
 main, body {
     height: 100vh;
     width: 100%;
@@ -21,9 +23,14 @@ main, body {
 .margin {
     padding: 0 2rem;
 }
+
 /* TEXT */
 a:visited {
     color: blue;
+}
+
+.h1 {
+    font-size: 10em;
 }
 
 .ar {
@@ -40,21 +47,19 @@ a:visited {
     font-size: 2em;
 }
 
+p {
+  max-width: 38rem;
+
+}
+
 footer {
     padding: 0 3rem 2em 3rem;
 }
 
-h1 {
-    font-size: 12em;
+h2, h3 {
+    line-height: 2.5;
 }
 
-h2 {
-    line-height: 3;
-}
-
-h3 {
-    line-height: 2;
-}
 /* TEXT bottom */
 
 /* 404.html */
@@ -98,4 +103,21 @@ span.pad {
 
 .tabbed:focus {
     transform: translateY(0%);
+}
+
+/* link list */
+.mac a {
+    font-family: Helvetica, Inter, Calibri, courier, sans-serif;
+}
+
+.mac a:hover {
+    font-family: Times New Roman, courier, serif;
+}
+
+.navlist li {
+    font-size: 1.5em;
+}
+
+div.navlist {
+  padding-left: 1rem;
 }
