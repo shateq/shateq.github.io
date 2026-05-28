@@ -1,8 +1,12 @@
 {{ define "main" }}
-<h1>{{ .Title }}</h1>
-<p>some info from me</p>
 <main>
-  <h2>Latest posts</h2>
+  <span class="ar h1">مقالات</span>
+  <div>
+    <h1 class="title">{{ .Title }}</h1>
+    {{ partial "return_rss.html" }}
+    <span class="pad"></span>
+  </div>
+  <h2 class="title">Latest posts</h2>
   <ul>
     {{ range .Pages }}
     <li>
@@ -10,5 +14,7 @@
     </li>
     {{ end }}
   </ul>
+  <span class="pad"></span>
+  {{ partial "qr.html" }}
 </main>
 {{ end }}

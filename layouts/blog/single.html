@@ -1,7 +1,16 @@
 {{define "main"}}
 <article>
-  <h1>{{.Title}}</h1>
-  <small>{{.Date.Format "2 Jan 2006"}}</small>
-  {{ .Content }}
+  <div class="title">
+    {{ partial "return_rss.html" }}
+    <h1>{{.Title}}</h1>
+    <small>published {{.Date.Format "2 Jan 2006"}}</small>
+    {{ if and .Params.update (ne (.Params.update | time) .Date) }}
+    <br><small>updated {{ (.Params.update | time).Format "2 Jan 2006"}}</small>
+    {{ end }}
+  </div>
+  <span class="pad"></span>
+  <main>
+    {{ .Content }}
+  </main>
 </article>
 {{end}}

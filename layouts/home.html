@@ -1,8 +1,9 @@
 {{ define "main" }}
 {{ .Content }}
-{{ if .IsHome }}
 <footer>
+{{ if .IsHome }}
   {{ partial "updated.html" }}
-</footer>
 {{ end}}
+{{ site.Copyright }}
+</footer>
 {{ end }}

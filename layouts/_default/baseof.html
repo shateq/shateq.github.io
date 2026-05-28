@@ -7,7 +7,7 @@
     <link rel="canonical" href="{{.Permalink}}">
     <meta name="author" content="Szymon Wieczorek">
     <meta name="description" content="{{.Description}}">
-    <title>{{ .Title }}</title>
+    <title>{{ .Site.Title }} {{ .Title }}</title>
 
     <meta property="og:title" content="swieczorek">
     <meta property="og:image" content="https://swieczorek.com/static/og.png">
@@ -19,6 +19,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&display=swap" rel="stylesheet">
     <link href="{{ (resources.Get "main.css").RelPermalink }}" rel="stylesheet" type="text/css">
+
+    {{ with .OutputFormats.Get "rss" }}
+        <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+    {{ end }}
   </head>
   <body>
     {{ block "main" . }}{{ end }}

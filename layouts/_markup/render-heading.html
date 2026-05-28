@@ -1,0 +1,7 @@
+<h{{.Level}} id="{{.Anchor}}" {{with .Attributes.class}} class="{{.}}" {{end}}>
+  {{if gt .Level 1}}
+    <a class="anchor" href="#{{.Anchor}}"><small>{{strings.Repeat (sub .Level 1) "#"}}</small> {{.Text | safeHTML}}</a>
+  {{else}}
+	{{.Text | safeHTML}}
+  {{end}}
+</h{{.Level}}>
