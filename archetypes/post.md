@@ -1,6 +1,6 @@
 ---
 date: '{{ .Date }}'
-update: '{{ .Date }}'
+# update: '{{ .Date }}'
 draft: true
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 ---

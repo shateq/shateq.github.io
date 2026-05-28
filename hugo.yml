@@ -1,7 +1,7 @@
 baseURL: https://swieczorek.com/
 locale: en
 title: Szymon Wieczorek
-copyright: © MMXXV Szymon Wieczorek
+copyright: © MMXXV Wieczorek
 minify:
   minifyOutput: true
 disableKinds:
