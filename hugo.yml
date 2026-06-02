@@ -6,6 +6,8 @@ minify:
   minifyOutput: true
 disableKinds:
   - 'taxonomy'
+params:
+  dateFormat: "2 Jan 2006"
 outputs:
   section:
   - html

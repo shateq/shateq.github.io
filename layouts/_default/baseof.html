@@ -9,10 +9,12 @@
     <meta name="description" content="{{.Description}}">
     <title>{{ .Site.Title }} {{ .Title }}</title>
 
-    <meta property="og:title" content="swieczorek">
-    <meta property="og:image" content="https://swieczorek.com/static/og.png">
-    <meta property="og:url" content="{{.Site.BaseURL}}">
-    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ .Description }}">
+    <meta property="og:url" content="{{ .Permalink }}">
+    <meta property="og:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "og.png" | absURL }}{{ end }}">
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+    {{ if .IsPage }}<meta property="article:published_time" content="{{ .Date.Format .Site.Params.dateFormat }}">{{ end }}
 
     <meta name="google" content="notranslate">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,5 +28,12 @@
   </head>
   <body>
     {{ block "main" . }}{{ end }}
+    <footer>
+      <span class="pad"></span>
+    {{ if .IsHome }}
+      {{ partial "updated.html" . }}
+    {{ end }}
+    {{ site.Copyright }}
+    </footer>
   </body>
 </html>
