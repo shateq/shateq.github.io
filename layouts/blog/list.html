@@ -4,17 +4,17 @@
   <div>
     <h1 class="title">{{ .Title }}</h1>
     {{ partial "return_rss.html" }}
-    <span class="pad"></span>
+    {{ partial "pad.html" }}
   </div>
   <h2 class="title">Latest posts</h2>
   <ul>
     {{ range .Pages }}
     <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a><small>{{.Date.Format "2 Jan 2006"}}</small>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ partial "date.html" . }}
     </li>
     {{ end }}
   </ul>
-  <span class="pad"></span>
+  {{ partial "pad.html" }}
   {{ partial "qr.html" }}
 </main>
 {{ end }}

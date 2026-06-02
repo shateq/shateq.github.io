@@ -3,12 +3,12 @@
   <div class="title">
     {{ partial "return_rss.html" }}
     <h1>{{.Title}}</h1>
-    <small>published {{.Date.Format "2 Jan 2006"}}</small>
+    published {{ partial "date.html" . }}
     {{ if and .Params.update (ne (.Params.update | time) .Date) }}
-    <br><small>updated {{ (.Params.update | time).Format "2 Jan 2006"}}</small>
+    <br><small>updated {{ (.Params.update | time).Format site.Params.dateFormat }}</small>
     {{ end }}
   </div>
-  <span class="pad"></span>
+  {{ partial "pad.html" }}
   <main>
     {{ .Content }}
   </main>

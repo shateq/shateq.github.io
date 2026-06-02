@@ -29,7 +29,7 @@
   <body>
     {{ block "main" . }}{{ end }}
     <footer>
-      <span class="pad"></span>
+      {{ partial "pad.html" }}
     {{ if .IsHome }}
       {{ partial "updated.html" . }}
     {{ end }}
